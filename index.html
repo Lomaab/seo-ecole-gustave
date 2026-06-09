@@ -1,0 +1,1116 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>SEO École Gustave — Rapport & Plan d'Action 2026</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,700;12..96,800;12..96,900&family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.7/dist/chart.umd.min.js"></script>
+  <style>
+
+    :root {
+      --black: #000000;
+      --green: #46b17a;
+      --green-light: #6ee7b7;
+      --green-bg: rgba(70,177,122,0.10);
+      --blue: #1e73be;
+      --blue-light: #93c5fd;
+      --blue-bg: rgba(30,115,190,0.10);
+      --amber: #f59e0b;
+      --amber-bg: rgba(245,158,11,0.10);
+      --red: #ef4444;
+      --red-light: #fca5a5;
+      --red-bg: rgba(239,68,68,0.08);
+      --gray-50: #fafafa;
+      --gray-100: #f4f4f5;
+      --gray-200: #e4e4e7;
+      --gray-300: #d4d4d8;
+      --gray-400: #a1a1aa;
+      --gray-500: #71717a;
+      --gray-600: #52525b;
+      --gray-700: #3f3f46;
+      --gray-800: #27272a;
+      --gray-900: #18181b;
+      --radius: 12px;
+      --shadow: 0 1px 3px rgba(0,0,0,0.1),0 1px 2px rgba(0,0,0,0.06);
+      --shadow-lg: 0 10px 15px -3px rgba(0,0,0,0.1),0 4px 6px -2px rgba(0,0,0,0.05);
+    }
+
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      font-family: 'GlacialDiffRegular', 'Inter', -apple-system, sans-serif;
+      background: var(--gray-50);
+      color: var(--gray-900);
+      line-height: 1.6;
+      overflow-x: hidden;
+    }
+    h1, h2, h3, h4, h5, h6 { font-family: 'Bricolage Grotesque', sans-serif; }
+    nav {
+      position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+      background: rgba(255,255,255,0.85); backdrop-filter: blur(16px);
+      border-bottom: 1px solid var(--gray-200);
+      padding: 0 2rem; height: 56px;
+      display: flex; align-items: center; justify-content: space-between;
+    }
+    nav .logo { font-weight: 800; font-size: 1rem; color: var(--black); display: flex; align-items: center; gap: 0.4rem; }
+    nav .logo span { color: var(--gray-900); font-weight: 400; }
+    nav .logo-badge { background: var(--black); color: #fff; font-size: 0.55rem; font-weight: 700; padding: 0.15em 0.5em; border-radius: 4px; margin-left: 0.3rem; }
+    nav a { color: var(--gray-500); text-decoration: none; font-size: 0.85rem; font-weight: 500; margin-left: 1.5rem; transition: color 0.2s; }
+    nav a:hover { color: var(--black); }
+
+    .hero { padding: 8rem 2rem 4rem; max-width: 1200px; margin: 0 auto; display: flex; align-items: center; gap: 4rem; }
+    .hero-content { flex: 1; }
+    .hero-label { display: inline-block; background: var(--green-bg); color: var(--green); font-weight: 700; font-size: 0.75rem; text-transform: uppercase; letter-spacing: 0.5px; padding: 0.3rem 0.8rem; border-radius: 6px; margin-bottom: 1rem; }
+    .hero h1 { font-size: 3.2rem; font-weight: 900; letter-spacing: -1.5px; line-height: 1.1; color: var(--gray-900); }
+    .hero h1 em { font-style: normal; color: var(--green); }
+    .hero p { font-size: 1.1rem; color: var(--gray-500); margin-top: 1rem; max-width: 550px; }
+    .hero-stats { display: flex; gap: 0.5rem; margin-top: 1.5rem; flex-wrap: wrap; }
+    .hero-stat { background: var(--gray-100); border-radius: 8px; padding: 0.5rem 1rem; text-align: center; }
+    .hero-stat .num { font-weight: 800; font-size: 1.4rem; color: var(--gray-900); }
+    .hero-stat .lbl { font-size: 0.65rem; color: var(--gray-500); text-transform: uppercase; letter-spacing: 0.3px; margin-top: 0.1rem; }
+    .hero-stat.highlight { background: var(--green-bg); }
+    .hero-stat.highlight .num { color: var(--black); }
+    .hero-visual { flex-shrink: 0; }
+    .hero-score { width: 180px; height: 180px; border-radius: 50%; background: conic-gradient(var(--green) 0% 71%, var(--gray-200) 71% 100%); display: flex; align-items: center; justify-content: center; position: relative; }
+    .hero-score-inner { width: 140px; height: 140px; border-radius: 50%; background: #fff; display: flex; flex-direction: column; align-items: center; justify-content: center; }
+    .hero-score-inner .num { font-size: 3rem; font-weight: 900; color: var(--black); letter-spacing: -1px; }
+    .hero-score-inner .lbl { font-size: 0.6rem; color: var(--gray-500); text-transform: uppercase; letter-spacing: 1px; }
+
+    .container { max-width: 1100px; margin: 0 auto; padding: 0 2rem; }
+    section { padding: 4rem 0; }
+    section.alt { background: var(--gray-50); }
+    .section-label { display: inline-block; font-weight: 700; font-size: 0.7rem; text-transform: uppercase; letter-spacing: 0.5px; padding: 0.25rem 0.7rem; border-radius: 4px; margin-bottom: 1rem; }
+    .label-critical { background: var(--red-bg); color: var(--red); }
+    .label-high { background: var(--amber-bg); color: var(--amber); }
+    .label-info { background: var(--blue-bg); color: var(--blue); }
+    .label-success { background: var(--green-bg); color: var(--green); }
+    h2 { font-size: 2rem; font-weight: 800; letter-spacing: -0.5px; line-height: 1.2; color: var(--gray-900); }
+    h2 + p { color: var(--gray-500); margin-top: 0.5rem; font-size: 1.05rem; }
+
+    .card { background: #fff; border: 1px solid var(--gray-200); border-radius: var(--radius); padding: 1.5rem; box-shadow: var(--shadow); }
+    .card-header { font-weight: 700; font-size: 0.85rem; color: var(--gray-700); margin-bottom: 1rem; display: flex; align-items: center; gap: 0.5rem; }
+    .card-header .icon { font-size: 1.2rem; }
+    .grid-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem; }
+    .grid-3 { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 1.5rem; }
+    .grid-4 { display: grid; grid-template-columns: 1fr 1fr 1fr 1fr; gap: 1rem; }
+    @media (max-width: 900px) { .grid-2, .grid-3, .grid-4 { grid-template-columns: 1fr; } }
+    .grid-2x3 { display: grid; grid-template-columns: 2fr 1fr; gap: 1.5rem; }
+    @media (max-width: 900px) { .grid-2x3 { grid-template-columns: 1fr; } }
+
+    .stat-card { text-align: center; padding: 1.2rem; }
+    .stat-card .num { font-family: 'Bricolage Grotesque', sans-serif; font-size: 2.2rem; font-weight: 800; letter-spacing: -1px; line-height: 1.2; }
+    .stat-card .lbl { font-size: 0.7rem; color: var(--gray-500); text-transform: uppercase; letter-spacing: 0.3px; margin-top: 0.3rem; }
+    .stat-card .sub { font-size: 0.75rem; color: var(--gray-400); margin-top: 0.2rem; }
+    .num-green { color: var(--green); }
+    .num-red { color: var(--red); }
+    .num-amber { color: var(--amber); }
+    .num-blue { color: var(--blue); }
+    .num-primary { color: var(--black); }
+
+    .tag { display: inline-block; font-size: 0.65rem; font-weight: 600; padding: 0.15rem 0.5rem; border-radius: 4px; white-space: nowrap; }
+    .tag-green { background: var(--green-bg); color: var(--green); }
+    .tag-amber { background: var(--amber-bg); color: var(--amber); }
+    .tag-red { background: var(--red-bg); color: var(--red); }
+    .tag-blue { background: var(--blue-bg); color: var(--blue); }
+    .tag-primary { background: var(--green-bg); color: var(--green); }
+    .tag-gray { background: var(--gray-100); color: var(--gray-600); }
+
+    .bar { margin: 0.5rem 0; }
+    .bar-h { display: flex; justify-content: space-between; font-size: 0.8rem; margin-bottom: 0.25rem; }
+    .bar-track { height: 8px; background: var(--gray-100); border-radius: 4px; overflow: hidden; }
+    .bar-fill { height: 100%; border-radius: 4px; transition: width 0.6s ease; }
+    .bf-green { background: var(--green); }
+    .bf-red { background: var(--red); }
+    .bf-amber { background: var(--amber); }
+    .bf-blue { background: var(--blue); }
+
+    .tbl { width: 100%; border-collapse: collapse; font-size: 0.85rem; }
+    .tbl th { text-align: left; padding: 0.6rem 0.8rem; color: var(--gray-500); font-weight: 600; font-size: 0.65rem; text-transform: uppercase; letter-spacing: 0.3px; border-bottom: 2px solid var(--gray-200); }
+    .tbl td { padding: 0.6rem 0.8rem; border-bottom: 1px solid var(--gray-100); color: var(--gray-700); }
+    .tbl tr:hover td { background: var(--gray-50); }
+    .tbl .hl td { background: var(--green-bg); font-weight: 600; }
+    .tbl .hl td:first-child { border-left: 3px solid var(--green); border-radius: 3px 0 0 3px; }
+
+    .url-row { display: flex; align-items: center; gap: 0.8rem; padding: 0.5rem 0.8rem; border-radius: 6px; font-size: 0.8rem; font-family: 'SF Mono', 'Fira Code', monospace; margin: 0.25rem 0; background: var(--gray-50); }
+    .url-row .url { flex: 1; color: var(--gray-600); overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+    .url-row .url-ok { color: var(--green); }
+    .url-row .url-bad { color: var(--red); text-decoration: line-through; }
+    .url-row .url-stat { font-family: 'Inter', sans-serif; font-weight: 600; font-size: 0.85em; min-width: 3.5rem; text-align: right; }
+
+    .hl { border-radius: var(--radius); padding: 1rem 1.2rem; margin: 1rem 0; }
+    .hl-red { background: var(--red-bg); border-left: 3px solid var(--red); }
+    .hl-green { background: var(--green-bg); border-left: 3px solid var(--green); }
+    .hl-amber { background: var(--amber-bg); border-left: 3px solid var(--amber); }
+    .hl-blue { background: var(--blue-bg); border-left: 3px solid var(--blue); }
+    .hl-black { background: rgba(0,0,0,0.04); border-left: 3px solid var(--black); }
+    .hl p { font-size: 0.9rem; color: var(--gray-700); line-height: 1.6; }
+    .hl strong { color: var(--gray-900); }
+
+    .steps { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 1.5rem; margin-top: 1.5rem; }
+    @media (max-width: 900px) { .steps { grid-template-columns: 1fr; } }
+    .step { background: #fff; border: 1px solid var(--gray-200); border-radius: var(--radius); padding: 1.5rem; position: relative; box-shadow: var(--shadow); }
+    .step-nb { position: absolute; top: -0.6rem; left: -0.6rem; width: 1.8rem; height: 1.8rem; border-radius: 50%; background: var(--green); color: #fff; display: flex; align-items: center; justify-content: center; font-size: 0.7rem; font-weight: 800; }
+    .step h4 { font-size: 0.95rem; font-weight: 700; color: var(--gray-900); margin-bottom: 0.5rem; }
+    .step p { font-size: 0.85rem; color: var(--gray-500); line-height: 1.6; }
+    .step-meta { display: flex; gap: 0.5rem; margin-top: 0.8rem; flex-wrap: wrap; }
+    .step-code { background: var(--gray-900); color: var(--green-light); border-radius: 6px; padding: 0.8rem; font-family: 'SF Mono', 'Fira Code', monospace; font-size: 0.75rem; line-height: 1.5; margin-top: 0.8rem; overflow-x: auto; }
+
+    .tl { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 1.5rem; margin-top: 1.5rem; }
+    @media (max-width: 900px) { .tl { grid-template-columns: 1fr; } }
+    .tl-item { border-radius: var(--radius); padding: 1.5rem; }
+    .tl-s1 { background: linear-gradient(180deg, #eef2ff, #fff); border: 1px solid #c7d2fe; }
+    .tl-s2 { background: linear-gradient(180deg, #fffbeb, #fff); border: 1px solid #fde68a; }
+    .tl-s3 { background: linear-gradient(180deg, #ecfdf5, #fff); border: 1px solid #a7f3d0; }
+    .tl-icon { font-size: 1.8rem; margin-bottom: 0.3rem; }
+    .tl-title { font-weight: 700; font-size: 1rem; color: var(--gray-900); }
+    .tl-sub { font-size: 0.75rem; color: var(--gray-500); margin: 0.2rem 0 0.8rem; }
+    .tl-action { font-size: 0.85rem; color: var(--gray-700); margin: 0.3rem 0; display: flex; gap: 0.4rem; }
+    .tl-action::before { content: "→"; color: var(--gray-400); font-weight: 700; }
+
+    .kpi-row { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1rem; margin: 1.5rem 0; }
+    @media (max-width: 900px) { .kpi-row { grid-template-columns: 1fr 1fr; } }
+    .kpi { background: #fff; border: 1px solid var(--gray-200); border-radius: var(--radius); padding: 1rem; text-align: center; box-shadow: var(--shadow); }
+    .kpi-current { font-family: 'Bricolage Grotesque', sans-serif; font-size: 1.4rem; font-weight: 700; color: var(--red); }
+    .kpi-arrow { color: var(--gray-400); font-size: 1rem; margin: 0 0.2rem; }
+    .kpi-target { font-family: 'Bricolage Grotesque', sans-serif; font-size: 1.4rem; font-weight: 700; color: var(--green); }
+    .kpi-lbl { font-size: 0.65rem; color: var(--gray-500); text-transform: uppercase; letter-spacing: 0.3px; margin-top: 0.3rem; }
+
+    .chart-wrap { position: relative; width: 100%; max-height: 200px; }
+
+    .cl { list-style: none; }
+    .cl li { font-size: 0.85rem; color: var(--gray-700); margin: 0.4rem 0; padding-left: 1.5rem; position: relative; }
+    .cl li::before { content: "☐"; position: absolute; left: 0; color: var(--gray-400); font-size: 1.1rem; }
+    .cl li.done::before { content: "☑"; color: var(--green); }
+    .cl li .tag { margin-left: 0.3rem; }
+
+    .accordion { border: 1px solid var(--gray-200); border-radius: var(--radius); overflow: hidden; margin: 0.5rem 0; }
+    .accordion-btn { width: 100%; padding: 1rem 1.2rem; background: #fff; border: none; text-align: left; font-weight: 600; font-size: 0.9rem; color: var(--gray-800); cursor: pointer; display: flex; justify-content: space-between; align-items: center; font-family: inherit; transition: background 0.2s; }
+    .accordion-btn:hover { background: var(--gray-50); }
+    .accordion-btn .arrow { transition: transform 0.3s ease; font-size: 0.8rem; color: var(--gray-400); }
+    .accordion-btn.active .arrow { transform: rotate(180deg); }
+    .accordion-body { max-height: 0; overflow: hidden; transition: max-height 0.3s ease; background: var(--gray-50); }
+    .accordion-body-inner { padding: 1rem 1.2rem; font-size: 0.85rem; color: var(--gray-700); line-height: 1.7; }
+    .accordion-body-inner ol { padding-left: 1.2rem; }
+    .accordion-body-inner ol li { margin: 0.4rem 0; }
+
+    .step-detail { background: #fff; border: 1px solid var(--gray-200); border-radius: var(--radius); margin: 0.8rem 0; overflow: hidden; }
+    .step-detail-header { padding: 1rem 1.2rem; font-weight: 700; font-size: 0.9rem; color: var(--gray-800); display: flex; align-items: center; gap: 0.6rem; cursor: pointer; background: var(--gray-50); transition: background 0.2s; }
+    .step-detail-header:hover { background: var(--gray-100); }
+    .step-detail-header .step-num { width: 1.6rem; height: 1.6rem; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 0.65rem; font-weight: 800; color: #fff; flex-shrink: 0; }
+    .num-1 { background: var(--green); }
+    .num-2 { background: var(--amber); }
+    .num-3 { background: var(--green); }
+    .num-4 { background: var(--blue); }
+    .step-detail-header .step-arrow { margin-left: auto; transition: transform 0.3s; color: var(--gray-400); font-size: 0.8rem; }
+    .step-detail-header.open .step-arrow { transform: rotate(180deg); }
+    .step-detail-body { max-height: 0; overflow: hidden; transition: max-height 0.4s ease; }
+    .step-detail-body-inner { padding: 1rem 1.2rem 1.2rem; font-size: 0.85rem; color: var(--gray-700); line-height: 1.7; }
+    .step-detail-body-inner ol { padding-left: 1.2rem; }
+    .step-detail-body-inner ol li { margin: 0.3rem 0; }
+    .step-detail-body-inner code { background: var(--gray-100); padding: 0.1em 0.3em; border-radius: 3px; font-size: 0.8em; font-family: 'SF Mono', 'Fira Code', monospace; }
+    .step-detail-body-inner .note { background: var(--amber-bg); border-left: 3px solid var(--amber); padding: 0.6rem 0.8rem; border-radius: 4px; margin: 0.6rem 0; font-size: 0.8rem; }
+
+    footer { border-top: 1px solid var(--gray-200); padding: 2rem; text-align: center; color: var(--gray-400); font-size: 0.8rem; }
+    @media print { nav { display: none; } .hero { padding-top: 2rem; } section { padding: 2rem 0; page-break-inside: avoid; } }
+    @keyframes fadeInUp { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
+    .animate { animation: fadeInUp 0.6s ease both; }
+    .animate-d1 { animation-delay: 0.1s; }
+    .animate-d2 { animation-delay: 0.2s; }
+    .animate-d3 { animation-delay: 0.3s; }
+  </style>
+</head>
+<body>
+
+  <!-- NAV -->
+  <nav>
+    <div class="logo">École Gustave <span style="color:var(--green);">·seo</span> <span class="logo-badge">Rapport</span></div>
+    <div>
+      <a href="#resume">Résumé</a>
+      <a href="#donnees">Données</a>
+      <a href="#problemes">Problèmes</a>
+      <a href="#plan">Plan</a>
+      <a href="#detail">Détail</a>
+      <a href="#roi">ROI</a>
+    </div>
+  </nav>
+
+  <!-- HERO -->
+  <section class="hero" id="top">
+    <div class="hero-content">
+      <div class="hero-label">Diagnostic SEO 2026</div>
+      <h1>Améliorer la visibilité d'<em>École Gustave</em> sur les formations</h1>
+      <p>Analyse sur les 6 derniers mois basée sur Google Search Console (556 406 impressions, 23 495 clics).</p>
+      <div class="hero-stats">
+        <div class="hero-stat highlight"><div class="num">+1 500</div><div class="lbl">Clics/mois potentiels</div></div>
+        <div class="hero-stat"><div class="num">~10h</div><div class="lbl">Travail total</div></div>
+        <div class="hero-stat"><div class="num">0€</div><div class="lbl">Budget requis</div></div>
+      </div>
+    </div>
+    <div class="hero-visual">
+      <div class="hero-score">
+        <div class="hero-score-inner">
+          <div class="num">71</div>
+          <div class="lbl">/100 Score SEO</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ════════════════════════════════════════════ -->
+  <!-- RÉSUMÉ EXÉCUTIF                             -->
+  <!-- ════════════════════════════════════════════ -->
+  <section id="resume">
+    <div class="container">
+      <div class="section-label label-critical">Résumé Exécutif</div>
+      <h2>Un bon socle, un potentiel énorme</h2>
+      <p>Le site est bien classé sur sa marque mais <strong>perd des milliers de clics</strong> sur les requêtes formation à cause de problèmes SEO identifiés et corrigeables.</p>
+
+      <div class="grid-4" style="margin: 2rem 0;">
+        <div class="card stat-card">
+          <div class="num num-primary">71</div>
+          <div class="lbl">Score SEO</div>
+          <div class="sub">Objectif : 90</div>
+        </div>
+        <div class="card stat-card">
+          <div class="num num-green">14 626</div>
+          <div class="lbl">"ecole gustave" /6 mois</div>
+          <div class="sub">✅ Position 1.3 · CTR 30%</div>
+        </div>
+        <div class="card stat-card">
+          <div class="num num-red">10 293</div>
+          <div class="lbl">"formation plombier" /6 mois</div>
+          <div class="sub">❌ Position 11.8 · CTR 1%</div>
+        </div>
+        <div class="card stat-card">
+          <div class="num num-green">+1 500</div>
+          <div class="lbl">Clics supplémentaires /mois</div>
+          <div class="sub">🎯 Potentiel estimé</div>
+        </div>
+      </div>
+
+      <div class="hl hl-green">
+        <p><strong>🎯 Impact potentiel : +300 à +1 500 clics/mois supplémentaires</strong> sur les seules requêtes formation — sans budget publicitaire, uniquement du travail SEO technique estimé à ~10 heures.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ════════════════════════════════════════════ -->
+  <!-- DONNÉES GSC                                 -->
+  <!-- ════════════════════════════════════════════ -->
+  <section id="donnees" class="alt">
+    <div class="container">
+      <div class="section-label label-info">Données Google Search Console</div>
+      <h2>556 406 impressions en 6 mois</h2>
+      <p>Analyse des données GSC de décembre 2025 à juin 2026.</p>
+
+      <div class="grid-4" style="margin: 2rem 0;">
+        <div class="card stat-card">
+          <div class="num num-blue">556 406</div>
+          <div class="lbl">Impressions</div>
+        </div>
+        <div class="card stat-card">
+          <div class="num num-green">23 495</div>
+          <div class="lbl">Clics</div>
+        </div>
+        <div class="card stat-card">
+          <div class="num num-amber">4.2%</div>
+          <div class="lbl">CTR moyen</div>
+        </div>
+        <div class="card stat-card">
+          <div class="num num-red">12.8</div>
+          <div class="lbl">Position moyenne</div>
+        </div>
+      </div>
+
+      <div class="grid-2">
+        <div class="card">
+          <div class="card-header"><span class="icon">📊</span> Top requêtes par catégorie</div>
+          <table class="tbl">
+            <tr><th>Requête</th><th>Impressions</th><th>Clics</th><th>CTR</th><th>Position</th></tr>
+            <tr class="hl">
+              <td><span style="color:var(--green);">🟢</span> "ecole gustave"</td>
+              <td>14 626</td>
+              <td>4 402</td>
+              <td style="color:var(--green); font-weight:600;">30.1%</td>
+              <td style="color:var(--green);">1.3</td>
+            </tr>
+            <tr>
+              <td><span style="color:var(--amber);">🟡</span> "formation plombier"</td>
+              <td>10 293</td>
+              <td>108</td>
+              <td style="color:var(--red);">1.0%</td>
+              <td style="color:var(--red);">11.8</td>
+            </tr>
+            <tr>
+              <td><span style="color:var(--red);">🔴</span> "formation plomberie"</td>
+              <td>6 301</td>
+              <td>64</td>
+              <td style="color:var(--red);">1.0%</td>
+              <td style="color:var(--red);">10.7</td>
+            </tr>
+            <tr>
+              <td><span style="color:var(--red);">🔴</span> "formation electricien"</td>
+              <td>5 556</td>
+              <td>24</td>
+              <td style="color:var(--red);">0.4%</td>
+              <td style="color:var(--red);">11.9</td>
+            </tr>
+            <tr>
+              <td><span style="color:var(--red);">🔴</span> "cap plomberie"</td>
+              <td>5 040</td>
+              <td>71</td>
+              <td style="color:var(--red);">1.4%</td>
+              <td style="color:var(--red);">13.1</td>
+            </tr>
+          </table>
+        </div>
+
+        <div class="card">
+          <div class="card-header"><span class="icon">📈</span> Tendances mensuelles</div>
+          <div class="chart-wrap">
+            <canvas id="trendChart"></canvas>
+          </div>
+          <hr style="border:none;border-top:1px solid var(--gray-100);margin:1rem 0;">
+          <div class="grid-2" style="font-size:0.8rem;">
+            <div>
+              <span class="tag tag-blue">📱 Mobile 48.2%</span>
+              <span class="tag tag-gray">💻 Desktop 51.2%</span>
+              <span class="tag tag-primary">📟 Tablet 0.6%</span>
+            </div>
+            <div>
+              <span class="tag tag-green">🇫🇷 France 85.7%</span>
+              <span class="tag tag-gray">🇧🇪 Belgique 0.6%</span>
+              <span class="tag tag-amber">🇲🇦 Maroc 0.4%</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ════════════════════════════════════════════ -->
+  <!-- PROBLÈMES                                    -->
+  <!-- ════════════════════════════════════════════ -->
+  <section id="problemes">
+    <div class="container">
+      <div class="section-label label-critical">🔴 4 Problèmes Critiques</div>
+      <h2>Ce qui fait perdre des clics</h2>
+
+      <!-- PROBLÈME 1 -->
+      <div class="card" style="margin-top:2rem; border-left: 3px solid var(--red);">
+        <div class="card-header" style="font-size:1rem;">
+          <span class="badge" style="background:var(--red);color:#fff;padding:0.2rem 0.6rem;border-radius:4px;font-size:0.65rem;">N°1</span>
+          Cannibalisation — 7 pages en compétition pour "formation plombier"
+        </div>
+
+        <div style="margin:1rem 0;">
+          <div class="url-row">
+            <span class="url url-ok">/formation-plombier-chauffagiste-paris/</span>
+            <span class="url-stat" style="color:var(--blue);">4 154</span>
+            <span class="url-stat" style="color:var(--amber);">pos 11.4</span>
+            <span class="url-stat" style="color:var(--red);">1.5%</span>
+            <span class="tag tag-green">✓ Meilleure</span>
+          </div>
+          <div class="url-row">
+            <span class="url url-bad">/formations/formation-plombier-chauffagiste/</span>
+            <span class="url-stat" style="color:var(--blue);">3 548</span>
+            <span class="url-stat" style="color:var(--amber);">pos 12.9</span>
+            <span class="url-stat" style="color:var(--red);">0.1%</span>
+            <span class="tag tag-amber">Cannibalise</span>
+          </div>
+          <div class="url-row">
+            <span class="url url-bad">/ (accueil)</span>
+            <span class="url-stat" style="color:var(--blue);">2 537</span>
+            <span class="url-stat" style="color:var(--amber);">pos 10.1</span>
+            <span class="url-stat" style="color:var(--red);">0.3%</span>
+            <span class="tag tag-amber">Cannibalise</span>
+          </div>
+          <div class="url-row" style="opacity:0.7;">
+            <span class="url">+ 4 autres pages (Lille, Lyon, Bordeaux...)</span>
+            <span class="url-stat" style="color:var(--blue);">~1 500</span>
+            <span class="url-stat" style="color:var(--amber);">pos 10-24</span>
+            <span class="url-stat" style="color:var(--red);"><1%</span>
+            <span class="tag tag-gray">Diluées</span>
+          </div>
+        </div>
+
+        <div class="grid-2" style="margin-top:1rem;">
+          <div class="hl hl-red" style="margin:0;">
+            <p><strong>💀 Impact : ~10 000 impressions/6 mois à position 10-24</strong> — Si consolidées en 1 page, la position passerait de 11.8 à ~3-5, et le CTR de 1% à 8-12%.</p>
+          </div>
+          <div>
+            <div class="bar">
+              <div class="bar-h"><span>Position actuelle</span><span style="color:var(--red);font-weight:700;">11.8</span></div>
+              <div class="bar-track"><div class="bar-fill bf-red" style="width:65%;"></div></div>
+            </div>
+            <div class="bar">
+              <div class="bar-h"><span>Position cible</span><span style="color:var(--green);font-weight:700;">~3.0</span></div>
+              <div class="bar-track"><div class="bar-fill bf-green" style="width:20%;"></div></div>
+            </div>
+            <div class="bar" style="margin-top:1rem;">
+              <div class="bar-h"><span>CTR actuel</span><span style="color:var(--red);font-weight:700;">1.0%</span></div>
+              <div class="bar-track"><div class="bar-fill bf-red" style="width:1%;"></div></div>
+            </div>
+            <div class="bar">
+              <div class="bar-h"><span>CTR cible</span><span style="color:var(--green);font-weight:700;">8-12%</span></div>
+              <div class="bar-track"><div class="bar-fill bf-green" style="width:10%;"></div></div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- PROBLÈME 2 -->
+      <div class="card" style="margin-top:1.5rem; border-left: 3px solid var(--amber);">
+        <div class="card-header" style="font-size:1rem;">
+          <span class="badge" style="background:var(--amber);color:#fff;padding:0.2rem 0.6rem;border-radius:4px;font-size:0.65rem;">N°2</span>
+          Doublons URLs Campus — chaque campus en 2 URLs
+        </div>
+        <div class="grid-2" style="margin-top:0.5rem;">
+          <div>
+            <p style="font-size:0.85rem;color:var(--gray-600);margin-bottom:0.5rem;"><span style="color:var(--green);">✅</span> Version conservée (<span style="font-family:monospace;">/campus/lyon/</span>)</p>
+            <div class="url-row"><span class="url url-ok">/campus/lyon/</span><span class="url-stat" style="color:var(--blue);">7 215</span><span class="url-stat" style="color:var(--green);">pos 2.1</span></div>
+            <div class="url-row"><span class="url url-ok">/campus/lille/</span><span class="url-stat" style="color:var(--blue);">6 862</span><span class="url-stat" style="color:var(--green);">pos 2.6</span></div>
+            <div class="url-row"><span class="url url-ok">/campus/paris/</span><span class="url-stat" style="color:var(--blue);">9 938</span><span class="url-stat" style="color:var(--green);">pos 2.5</span></div>
+          </div>
+          <div>
+            <p style="font-size:0.85rem;color:var(--gray-600);margin-bottom:0.5rem;"><span style="color:var(--amber);">⚠️</span> Anciennes URLs (déjà en 301)</p>
+            <div class="url-row"><span class="url url-bad">/campus-ecole-gustave/lyon/</span><span class="url-stat" style="color:var(--blue);">20 656</span><span class="url-stat" style="color:var(--amber);">pos 6.8</span></div>
+            <div class="url-row"><span class="url url-bad">/campus-ecole-gustave/lille/</span><span class="url-stat" style="color:var(--blue);">17 858</span><span class="url-stat" style="color:var(--amber);">pos 6.8</span></div>
+            <div class="url-row"><span class="url url-bad">/campus-ecole-gustave/marseille/</span><span class="url-stat" style="color:var(--blue);">5 970</span><span class="url-stat" style="color:var(--amber);">pos 6.5</span></div>
+          </div>
+        </div>
+        <div class="hl hl-green" style="margin-top:0.8rem;">
+          <p><strong>✅ État :</strong> Les redirections 301 sont déjà en place (vérifié). Plus besoin d'action urgente. Google doit simplement re-crawler.</p>
+        </div>
+      </div>
+
+      <!-- PROBLÈME 3 -->
+      <div class="card" style="margin-top:1.5rem; border-left: 3px solid var(--red);">
+        <div class="card-header" style="font-size:1rem;">
+          <span class="badge" style="background:var(--red);color:#fff;padding:0.2rem 0.6rem;border-radius:4px;font-size:0.65rem;">N°3</span>
+          CTR anémique — des milliers d'impressions sans clics
+        </div>
+        <div class="grid-2" style="margin-top:0.5rem;">
+          <div>
+            <div class="bar">
+              <div class="bar-h"><span>"formation plombier"</span><span style="color:var(--red);font-weight:600;">1.0%</span></div>
+              <div class="bar-track"><div class="bar-fill bf-red" style="width:1%;"></div></div>
+            </div>
+            <div class="bar">
+              <div class="bar-h"><span>"formation electricien"</span><span style="color:var(--red);font-weight:600;">0.4%</span></div>
+              <div class="bar-track"><div class="bar-fill bf-red" style="width:0.4%;"></div></div>
+            </div>
+            <div class="bar">
+              <div class="bar-h"><span>"cap plomberie"</span><span style="color:var(--amber);font-weight:600;">1.4%</span></div>
+              <div class="bar-track"><div class="bar-fill bf-amber" style="width:1.4%;"></div></div>
+            </div>
+            <div class="bar">
+              <div class="bar-h"><span>"formation plomberie"</span><span style="color:var(--red);font-weight:600;">1.0%</span></div>
+              <div class="bar-track"><div class="bar-fill bf-red" style="width:1%;"></div></div>
+            </div>
+          </div>
+          <div>
+            <div style="font-size:0.85rem;color:var(--gray-700);">
+              <div class="flex" style="display:flex;gap:0.5rem;align-items:flex-start;margin:0.5rem 0;">
+                <span class="tag tag-red">1</span>
+                <span><strong>Meta description manquante</strong> sur plusieurs pages formation</span>
+              </div>
+              <div class="flex" style="display:flex;gap:0.5rem;align-items:flex-start;margin:0.5rem 0;">
+                <span class="tag tag-red">2</span>
+                <span><strong>Titres peu attractifs</strong> : pas de mots-clés puissants (RNCP, alternance)</span>
+              </div>
+              <div class="flex" style="display:flex;gap:0.5rem;align-items:flex-start;margin:0.5rem 0;">
+                <span class="tag tag-red">3</span>
+                <span><strong>Position 10-15</strong> = bas de page = quasi invisible</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- PROBLÈME 4 -->
+      <div class="card" style="margin-top:1.5rem; border-left: 3px solid var(--amber);">
+        <div class="card-header" style="font-size:1rem;">
+          <span class="badge" style="background:var(--amber);color:#fff;padding:0.2rem 0.6rem;border-radius:4px;font-size:0.65rem;">N°4</span>
+          Cannibalisation marque — pages secondaires classent pour "ecole gustave"
+        </div>
+        <p style="font-size:0.85rem;color:var(--gray-600);margin:0.5rem 0 1rem;">La homepage mérite tout le trafic de marque. Actuellement, des pages secondaires le détournent avec un CTR très faible.</p>
+        <table class="tbl">
+          <tr><th>Page</th><th>Position</th><th>CTR</th><th>Impressions</th><th>Clics perdus</th></tr>
+          <tr class="hl"><td>/ (accueil)</td><td style="color:var(--green);">1.3</td><td style="color:var(--green);">24.4%</td><td>14 558</td><td>—</td></tr>
+          <tr><td>/ecole-gustave/</td><td>4.0</td><td style="color:var(--red);">0.6%</td><td>9 884</td><td style="color:var(--red);">~2 360</td></tr>
+          <tr><td>/campus/paris/</td><td>2.5</td><td style="color:var(--red);">1.9%</td><td>9 938</td><td style="color:var(--red);">~2 230</td></tr>
+          <tr><td>/campus/lille/</td><td>2.6</td><td style="color:var(--red);">2.0%</td><td>6 862</td><td style="color:var(--red);">~1 540</td></tr>
+          <tr><td>/les-formations/</td><td>4.1</td><td style="color:var(--red);">0.7%</td><td>4 138</td><td style="color:var(--red);">~980</td></tr>
+        </table>
+        <div class="hl hl-amber" style="margin-top:0.8rem;">
+          <p><strong>💡 Des milliers de clics perdus</strong> — Solution : ajuster le contenu de ces pages pour ne pas cibler la requête "ecole gustave" et laisser la homepage capter tout ce trafic.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ════════════════════════════════════════════ -->
+  <!-- PLAN D'ACTION                                -->
+  <!-- ════════════════════════════════════════════ -->
+  <section id="plan" class="alt">
+    <div class="container">
+      <div class="section-label label-info">Plan d'Action</div>
+      <h2>3 semaines pour +1 500 clics/mois</h2>
+
+      <div class="tl">
+        <div class="tl-item tl-s1">
+          <div class="tl-icon">⚡</div>
+          <div class="tl-title">Semaine 1 — Quick Wins</div>
+          <div class="tl-sub">~30 min · Effort faible</div>
+          <div class="tl-action">Ajouter meta description formation Paris</div>
+          <div class="tl-action">Optimiser titre H1 formation</div>
+          <div class="tl-action">Ajouter alt texts (14 images)</div>
+          <div class="tl-action">Convertir 20 images en WebP</div>
+        </div>
+        <div class="tl-item tl-s2">
+          <div class="tl-icon">🛠️</div>
+          <div class="tl-title">Semaine 2 — Contenu</div>
+          <div class="tl-sub">~4h · Effort moyen</div>
+          <div class="tl-action">Consolider les pages formation plombier</div>
+          <div class="tl-action">Enrichir contenu (FAQ, témoignages)</div>
+          <div class="tl-action">Ajouter schéma LocalBusiness campus</div>
+          <div class="tl-action">Ajuster pages qui cannibalisent la marque</div>
+        </div>
+        <div class="tl-item tl-s3">
+          <div class="tl-icon">🚀</div>
+          <div class="tl-title">Semaine 3 — Technique</div>
+          <div class="tl-sub">~5h · Effort variable</div>
+          <div class="tl-action">Corriger scroll horizontal mobile</div>
+          <div class="tl-action">Ajouter headers sécurité (Cloudflare)</div>
+          <div class="tl-action">Améliorer lisibilité Flesch (19.7→60+)</div>
+          <div class="tl-action">Ajouter dimensions aux images</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ════════════════════════════════════════════ -->
+  <!-- PLAN D'ACTION CONCRET - DÉTAILLÉ            -->
+  <!-- ════════════════════════════════════════════ -->
+  <section id="detail">
+    <div class="container">
+      <div class="section-label label-critical">📋 Plan d'Action Concret</div>
+      <h2>Étape par étape — quoi faire exactement dans WordPress</h2>
+      <p>Instructions détaillées pour chaque correction, avec captures d'écran mentales et chemins exacts dans WordPress.</p>
+
+      <!-- SEMAINE 1 -->
+      <h3 style="font-size:1.2rem;font-weight:700;margin-top:2.5rem;color:var(--gray-900);display:flex;align-items:center;gap:0.5rem;">
+        <span class="tag tag-primary" style="font-size:0.7rem;">SEMAINE 1</span> Quick Wins — ~30 min
+      </h3>
+
+      <div class="step-detail">
+        <div class="step-detail-header" onclick="toggleDetail(this)">
+          <span class="step-num num-1">1</span>
+          Ajouter la meta description sur la page formation Paris
+          <span class="step-arrow">▼</span>
+        </div>
+        <div class="step-detail-body">
+          <div class="step-detail-body-inner">
+            <p><strong>Où :</strong> <code>/formation-plombier-chauffagiste-paris/</code></p>
+            <p><strong>Problème :</strong> Aucune meta description → Google affiche un extrait aléatoire peu attractif.</p>
+            <p><strong>Dans WordPress + Yoast :</strong></p>
+            <ol>
+              <li>Aller dans <strong>Pages → Toutes les pages</strong></li>
+              <li>Rechercher "formation plombier chauffagiste paris"</li>
+              <li>Cliquer sur <strong>Modifier</strong></li>
+              <li>Descendre jusqu'au bloc <strong>Yoast SEO</strong> (sous l'éditeur)</li>
+              <li>Onglet "Google Preview" ou "Snippet Editor"</li>
+              <li>Dans le champ <strong>Meta description</strong>, coller :</li>
+            </ol>
+            <div class="step-code">Formation plombier chauffagiste à Paris — Titre RNCP niveau 4. Accessible en alternance, financement possible. 6 mois de formation pratique. Taux d'insertion : 85%.</div>
+            <div class="note">💡 La meta description n'influence pas directement le classement, mais elle augmente le CTR de 15 à 30%. Sur 10 000 impressions, passer de 1% à 2% de CTR = +100 clics.</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="step-detail">
+        <div class="step-detail-header" onclick="toggleDetail(this)">
+          <span class="step-num num-2">2</span>
+          Optimiser le titre et H1 de la formation Paris
+          <span class="step-arrow">▼</span>
+        </div>
+        <div class="step-detail-body">
+          <div class="step-detail-body-inner">
+            <p><strong>Où :</strong> <code>/formation-plombier-chauffagiste-paris/</code></p>
+            <p><strong>Problème :</strong> Le titre et H1 actuels sont faibles. Pas de mots-clés "RNCP", "alternance", "certification".</p>
+            <p><strong>Dans WordPress + Yoast :</strong></p>
+            <ol>
+              <li>Dans l'éditeur de la même page</li>
+              <li>Modifier le <strong>titre de la page</strong> (en haut de l'éditeur) :</li>
+            </ol>
+            <div class="step-code">Titre SEO (via Yoast) : Formation Plombier Chauffagiste Paris | RNCP | Alternance</div>
+            <ol start="3">
+              <li>Modifier le <strong>H1</strong> dans le contenu de la page :</li>
+            </ol>
+            <div class="step-code">H1 : Devenir Plombier Chauffagiste à Paris — Formation RNCP en Alternance</div>
+            <p style="margin-top:0.5rem;"><strong>Raison :</strong> Google utilise le titre dans le résultat de recherche. "RNCP" et "Alternance" sont des mots-clés qui rassurent et convertissent.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="step-detail">
+        <div class="step-detail-header" onclick="toggleDetail(this)">
+          <span class="step-num num-3">3</span>
+          Ajouter les alt texts sur les images
+          <span class="step-arrow">▼</span>
+        </div>
+        <div class="step-detail-body">
+          <div class="step-detail-body-inner">
+            <p><strong>Où :</strong> Toutes les pages (14 images sans alt text détectées)</p>
+            <p><strong>Problème :</strong> Google Images ne peut pas classer ces images, elles ne rapportent pas de trafic.</p>
+            <p><strong>Dans WordPress :</strong></p>
+            <ol>
+              <li>Aller dans <strong>Média → Bibliothèque</strong></li>
+              <li>Passer en mode <strong>Liste</strong> (en haut à droite)</li>
+              <li>Trier par "Non utilisé" ou cliquer sur chaque image sans alt text</li>
+              <li>Dans le panneau latéral droit, remplir le champ <strong>Texte alternatif</strong></li>
+              <li>Exemples :</li>
+            </ol>
+            <div class="step-code">"Campus École Gustave Lyon - atelier formation plomberie"
+"Élèves en formation plombier chauffagiste au campus Paris"
+"Certificat RNCP formation plombier École Gustave"
+"Salle de formation pratique électricien École Gustave"</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="step-detail">
+        <div class="step-detail-header" onclick="toggleDetail(this)">
+          <span class="step-num num-4">4</span>
+          Convertir les images en WebP
+          <span class="step-arrow">▼</span>
+        </div>
+        <div class="step-detail-body">
+          <div class="step-detail-body-inner">
+            <p><strong>Où :</strong> 20 images au format JPEG/PNG à convertir</p>
+            <p><strong>Problème :</strong> Le poids des images ralentit le chargement et pénalise le score de performance.</p>
+            <p><strong>Méthode automatique (recommandée) :</strong></p>
+            <ol>
+              <li>Dans WordPress, aller dans <strong>Extensions → Ajouter</strong></li>
+              <li>Rechercher et installer <strong>"WebP Express"</strong> ou <strong>"ShortPixel"</strong> (gratuits)</li>
+              <li>Activer l'extension</li>
+              <li>Aller dans <strong>Réglages → WebP Express</strong></li>
+              <li>Cocher "Convertir automatiquement les images au format WebP"</li>
+              <li>Choisir qualité 80 (bon équilibre qualité/poids)</li>
+              <li>Enregistrer</li>
+            </ol>
+            <p><strong>Méthode manuelle :</strong> Utiliser <a href="https://squoosh.app" target="_blank" style="color:var(--green);">squoosh.app</a> (gratuit) pour convertir les images une par une, puis les remplacer dans la médiathèque.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- SEMAINE 2 -->
+      <h3 style="font-size:1.2rem;font-weight:700;margin-top:2.5rem;color:var(--gray-900);display:flex;align-items:center;gap:0.5rem;">
+        <span class="tag tag-amber" style="font-size:0.7rem;">SEMAINE 2</span> Contenu — ~4h
+      </h3>
+
+      <div class="step-detail">
+        <div class="step-detail-header" onclick="toggleDetail(this)">
+          <span class="step-num num-1">1</span>
+          Consolider les 2 pages formation plombier en 1 seule
+          <span class="step-arrow">▼</span>
+        </div>
+        <div class="step-detail-body">
+          <div class="step-detail-body-inner">
+            <p><strong>Pourquoi :</strong> Actuellement, 2 pages principales cannibalisent le mot-clé "formation plombier" :</p>
+            <ul>
+              <li><code>/formation-plombier-chauffagiste-paris/</code> (4 154 imp, pos 11.4)</li>
+              <li><code>/formations/formation-plombier-chauffagiste/</code> (3 548 imp, pos 12.9)</li>
+            </ul>
+            <p><strong>Objectif :</strong> N'avoir qu'une seule page qui cumule toute l'autorité et monte en position ~3.</p>
+            <p><strong>Dans WordPress :</strong></p>
+            <ol>
+              <li>Conserver <code>/formation-plombier-chauffagiste-paris/</code> comme page principale</li>
+              <li>Fusionner le contenu : copier tout le meilleur contenu de la page secondaire vers la page principale</li>
+              <li>Installer l'extension <strong>"Redirection"</strong> (gratuite, par John Godley)</li>
+              <li>Aller dans <strong>Outils → Redirections</strong></li>
+              <li>Cliquer sur <strong>"Ajouter une redirection"</strong></li>
+              <li>Source URL : <code>/formations/formation-plombier-chauffagiste/</code></li>
+              <li>Target URL : <code>/formation-plombier-chauffagiste-paris/</code></li>
+              <li>Sélectionner <strong>301 — Moved Permanently</strong></li>
+              <li>Cliquer sur <strong>"Ajouter la redirection"</strong></li>
+              <li>Dans Yoast SEO sur la page secondaire, définir la balise <strong>canonical</strong> vers la page principale</li>
+            </ol>
+            <div class="note">⚠️ Une fois fait, aller dans <strong>Google Search Console → Inspection d'URL</strong>, coller l'URL de la page principale et cliquer sur "Demander l'indexation" pour accélérer la prise en compte.</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="step-detail">
+        <div class="step-detail-header" onclick="toggleDetail(this)">
+          <span class="step-num num-2">2</span>
+          Enrichir le contenu formation plombier (pour top 3)
+          <span class="step-arrow">▼</span>
+        </div>
+        <div class="step-detail-body">
+          <div class="step-detail-body-inner">
+            <p><strong>Pourquoi :</strong> La page est en position 11.8. Pour passer top 3, il faut un contenu plus complet que les concurrents.</p>
+            <p><strong>Éléments à ajouter :</strong></p>
+            <ol>
+              <li><strong>FAQ (10 questions)</strong> avec schéma FAQ — ex : "Quel est le salaire d'un plombier chauffagiste ?", "La formation est-elle éligible au CPF ?", etc.</li>
+              <li><strong>Témoignages élèves</strong> avec photo et prénom — format : "Grâce à l'École Gustave, j'ai obtenu mon titre RNCP en 6 mois"</li>
+              <li><strong>Section "Pourquoi choisir l'École Gustave ?"</strong> — 3-4 arguments clés avec icônes</li>
+              <li><strong>Tableau des débouchés</strong> avec salaires :</li>
+            </ol>
+            <div class="step-code">| Métier              | Salaire débutant | Salaire après 5 ans |
+|---------------------|------------------|---------------------|
+| Plombier chauffagiste | 2 100 € net     | 3 500 € net         |
+| Chef d'équipe      | 2 800 € net      | 4 200 € net         |</div>
+            <ol start="5">
+              <li><strong>Vidéo YouTube</strong> du campus ou d'une démo pratique (intégrer via le bloc WordPress "YouTube")</li>
+              <li><strong>CTA final</strong> : bouton "Demander une brochure" ou "Réserver un appel" — avec ancre vers formulaire de contact</li>
+            </ol>
+            <p><strong>Pour Yoast SEO :</strong> viser le <strong>feu vert</strong> sur tous les points (lisibilité, mots-clés, liens internes).</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="step-detail">
+        <div class="step-detail-header" onclick="toggleDetail(this)">
+          <span class="step-num num-3">3</span>
+          Ajouter le schéma LocalBusiness sur chaque campus
+          <span class="step-arrow">▼</span>
+        </div>
+        <div class="step-detail-body">
+          <div class="step-detail-body-inner">
+            <p><strong>Pourquoi :</strong> Le schéma LocalBusiness permet à Google d'afficher les infos du campus directement dans les résultats (adresse, note, horaires).</p>
+            <p><strong>Dans Yoast SEO :</strong></p>
+            <ol>
+              <li>Aller dans <strong>Yoast SEO → Réglages → Général → Site</strong></li>
+              <li>Type d'organisation : <strong>LocalBusiness</strong></li>
+              <li>Remplir les infos générales de l'école</li>
+            </ol>
+            <p><strong>Pour chaque page campus (méthode manuelle si Yoast ne gère pas le multi-schema) :</strong></p>
+            <ol>
+              <li>Installer l'extension <strong>"Insert Headers and Footers"</strong> ou <strong>"WPCode"</strong> (gratuite)</li>
+              <li>Aller dans <strong>Code Snippets → Ajouter un snippet</strong></li>
+              <li>Choisir "Ajouter du code personnalisé"</li>
+              <li>Type : JavaScript (ou plutôt "PHP" si conditionnel)</li>
+              <li>Coller pour chaque campus le JSON-LD adapté :</li>
+            </ol>
+            <div class="step-code">&lt;script type="application/ld+json"&gt;
+{
+  "@context": "https://schema.org",
+  "@type": "LocalBusiness",
+  "name": "École Gustave Lyon",
+  "address": {
+    "@type": "PostalAddress",
+    "addressLocality": "Lyon",
+    "addressCountry": "FR"
+  },
+  "url": "https://ecole-gustave.com/campus/lyon/"
+}
+&lt;/script&gt;</div>
+            <p>Ou bien utiliser l'extension <strong>"Schema & Structured Data for WP & AMP"</strong> qui permet de gérer le schéma par page via l'interface.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="step-detail">
+        <div class="step-detail-header" onclick="toggleDetail(this)">
+          <span class="step-num num-4">4</span>
+          Ajuster les pages qui cannibalisent la marque
+          <span class="step-arrow">▼</span>
+        </div>
+        <div class="step-detail-body">
+          <div class="step-detail-body-inner">
+            <p><strong>Pages concernées :</strong> <code>/ecole-gustave/</code>, <code>/campus/*</code>, <code>/les-formations/</code></p>
+            <p><strong>Problème :</strong> Ces pages apparaissent sur la requête "ecole gustave" avec un CTR de 0.6-2%, alors que la homepage fait 24.4%.</p>
+            <p><strong>Dans Yoast SEO :</strong></p>
+            <ol>
+              <li>Pour chaque page concernée, aller dans l'éditeur</li>
+              <li>Descendre au bloc <strong>Yoast SEO</strong></li>
+              <li>Dans l'onglet "Focus keyphrase", <strong>supprimer</strong> la keyphrase "ecole gustave" si elle est définie</li>
+              <li>Remplacer par la keyphrase spécifique à la page (ex: "campus lyon ecole gustave")</li>
+              <li>Dans le titre SEO (via Yoast), retirer "École Gustave" du début — ex: "Campus Lyon | École Gustave" → mettre l'école en second</li>
+            </ol>
+            <p><strong>Alternative plus poussée :</strong> Ajouter <code>noindex</code> sur les pages qui n'ont pas vocation à être trouvées via la marque. Dans Yoast, onglet "Avancé" → "Indexation" → "Noindex".</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- SEMAINE 3 -->
+      <h3 style="font-size:1.2rem;font-weight:700;margin-top:2.5rem;color:var(--gray-900);display:flex;align-items:center;gap:0.5rem;">
+        <span class="tag tag-green" style="font-size:0.7rem;">SEMAINE 3</span> Technique — ~5h
+      </h3>
+
+      <div class="step-detail">
+        <div class="step-detail-header" onclick="toggleDetail(this)">
+          <span class="step-num num-1">1</span>
+          Corriger le scroll horizontal mobile
+          <span class="step-arrow">▼</span>
+        </div>
+        <div class="step-detail-body">
+          <div class="step-detail-body-inner">
+            <p><strong>Problème :</strong> Le site a un scroll horizontal sur mobile (contenu qui dépasse de la largeur de l'écran).</p>
+            <p><strong>Solution via Cloudflare (Edge) ou via le thème :</strong></p>
+            <p><strong>Option 1 — CSS direct (recommandé) :</strong></p>
+            <ol>
+              <li>Aller dans <strong>Apparence → Personnaliser → CSS additionnel</strong></li>
+              <li>Ajouter :</li>
+            </ol>
+            <div class="step-code">html, body {
+  overflow-x: hidden !important;
+  width: 100% !important;
+}</div>
+            <p><strong>Option 2 — Cloudflare :</strong></p>
+            <ol>
+              <li>Se connecter au tableau de bord Cloudflare</li>
+              <li>Aller dans <strong>Rules → Transform Rules → Modify Response Header</strong></li>
+              <li>Pas nécessaire pour ce correctif — le CSS suffit</li>
+            </ol>
+          </div>
+        </div>
+      </div>
+
+      <div class="step-detail">
+        <div class="step-detail-header" onclick="toggleDetail(this)">
+          <span class="step-num num-2">2</span>
+          Ajouter les headers de sécurité via Cloudflare
+          <span class="step-arrow">▼</span>
+        </div>
+        <div class="step-detail-body">
+          <div class="step-detail-body-inner">
+            <p><strong>Problème :</strong> Headers de sécurité manquants (X-Frame-Options, X-Content-Type-Options, Referrer-Policy, CSP).</p>
+            <p><strong>Solution via Cloudflare :</strong></p>
+            <ol>
+              <li>Se connecter au tableau de bord Cloudflare</li>
+              <li>Aller dans <strong>Rules → Transform Rules → Modify Response Header</strong></li>
+              <li>Cliquer sur <strong>"Ajouter une règle"</strong></li>
+              <li>Nom : "Sécurité Headers"</li>
+              <li>Champ "If" : laisser vide (appliqué à toutes les requêtes)</li>
+              <li>Ajouter les headers suivants :</li>
+            </ol>
+            <div class="step-code">X-Frame-Options: SAMEORIGIN
+X-Content-Type-Options: nosniff
+Referrer-Policy: strict-origin-when-cross-origin
+Permissions-Policy: geolocation=(), microphone=(), camera=()</div>
+            <p><strong>Alternative sans Cloudflare :</strong> Utiliser un plugin WordPress comme "HTTP Headers" (gratuit) ou ajouter via le fichier <code>.htaccess</code>.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="step-detail">
+        <div class="step-detail-header" onclick="toggleDetail(this)">
+          <span class="step-num num-3">3</span>
+          Améliorer la lisibilité Flesch (19.7 → 60+)
+          <span class="step-arrow">▼</span>
+        </div>
+        <div class="step-detail-body">
+          <div class="step-detail-body-inner">
+            <p><strong>Problème :</strong> Score Flesch de 19.7 (très difficile à lire). Le texte contient trop de phrases longues et de mots complexes.</p>
+            <p><strong>Solutions :</strong></p>
+            <ol>
+              <li>Dans Yoast SEO, l'onglet "Lisibilité" vous montre les problèmes spécifiques</li>
+              <li>Raccourcir les phrases à moins de 20 mots</li>
+              <li>Diviser les paragraphes longs (max 4-5 lignes)</li>
+              <li>Ajouter des <strong>listes à puces</strong> (comme ici)</li>
+              <li>Utiliser des mots plus courts et plus courants</li>
+              <li>Ajouter des <strong>sous-titres (H2, H3)</strong> tous les 2-3 paragraphes</li>
+              <li>Mettre en gras les mots-clés importants</li>
+            </ol>
+            <div class="step-code">❌ Avant (Flesch ~20) :
+"La formation de plombier chauffagiste dispensée au sein de notre établissement vous permettra d'acquérir l'ensemble des compétences nécessaires à l'exercice de ce métier en plein essor dans le secteur du bâtiment et des travaux publics."
+
+✅ Après (Flesch ~65) :
+"Devenez plombier chauffagiste en 6 mois. La formation est accessible en alternance. Vous obtenez un titre RNCP niveau 4. Les débouchés sont nombreux : 85% de nos diplômés trouvent un emploi dans les 3 mois."</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="step-detail">
+        <div class="step-detail-header" onclick="toggleDetail(this)">
+          <span class="step-num num-4">4</span>
+          Ajouter dimensions width/height sur toutes les images
+          <span class="step-arrow">▼</span>
+        </div>
+        <div class="step-detail-body">
+          <div class="step-detail-body-inner">
+            <p><strong>Problème :</strong> Les images sans dimensions explicites provoquent un <strong>Cumulative Layout Shift (CLS)</strong> — Google pénalise.</p>
+            <p><strong>Solution avec un plugin :</strong></p>
+            <ol>
+              <li>Installer l'extension <strong>"Enable Media Replace"</strong> ou <strong>"Auto Image Attributes"</strong></li>
+              <li>Les dimensions sont automatiquement ajoutées aux images lors de l'insertion</li>
+              <li>Alternative : un plugin comme "Fixed CLS" ou "Speculative Loading"</li>
+            </ol>
+            <p><strong>Vérification :</strong> Après correction, tester avec <a href="https://pagespeed.web.dev/" target="_blank" style="color:var(--green);">PageSpeed Insights</a> — le CLS devrait être &lt; 0.1.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- RAPPEL FINAL -->
+      <div class="hl hl-black" style="margin-top:2rem;">
+        <p><strong>🎯 Une fois tout fait :</strong></p>
+        <p>1. Aller dans <strong>Google Search Console → Sitemaps</strong> → renvoyer le sitemap Yoast</p>
+        <p>2. Aller dans <strong>Inspection d'URL</strong> → coller chaque URL modifiée → "Demander l'indexation"</p>
+        <p>3. Attendre 1-2 semaines et vérifier les positions dans GSC → l'onglet "Performance"</p>
+        <p>4. Le score SEO devrait passer de 71 à 85+ et les positions formation de 11.8 à ~4-5</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ════════════════════════════════════════════ -->
+  <!-- ROI                                         -->
+  <!-- ════════════════════════════════════════════ -->
+  <section id="roi" class="alt" style="padding:4rem 0;">
+    <div class="container">
+      <div class="section-label label-success">📊 ROI Estimé</div>
+      <h2>Ce que ces changements rapportent</h2>
+
+      <div class="kpi-row">
+        <div class="kpi">
+          <div><span class="kpi-current">71</span><span class="kpi-arrow">→</span><span class="kpi-target">90</span></div>
+          <div class="kpi-lbl">Score SEO /100</div>
+        </div>
+        <div class="kpi">
+          <div><span class="kpi-current">1.0%</span><span class="kpi-arrow">→</span><span class="kpi-target">8-12%</span></div>
+          <div class="kpi-lbl">CTR "formation plombier"</div>
+        </div>
+        <div class="kpi">
+          <div><span class="kpi-current">11.8</span><span class="kpi-arrow">→</span><span class="kpi-target">~3</span></div>
+          <div class="kpi-lbl">Position "formation plombier"</div>
+        </div>
+        <div class="kpi">
+          <div><span class="kpi-current">7</span><span class="kpi-arrow">→</span><span class="kpi-target">1</span></div>
+          <div class="kpi-lbl">Pages cannibalisées</div>
+        </div>
+      </div>
+
+      <div class="grid-3" style="margin:1.5rem 0;">
+        <div class="card stat-card">
+          <div class="num num-green" style="font-size:2.5rem;">+1 500</div>
+          <div class="lbl">Clics supplémentaires /mois</div>
+          <div class="sub">sur requêtes formation uniquement</div>
+        </div>
+        <div class="card stat-card">
+          <div class="num num-primary" style="font-size:2.5rem;">0 €</div>
+          <div class="lbl">Budget publicitaire</div>
+          <div class="sub">100% SEO technique gratuit</div>
+        </div>
+        <div class="card stat-card">
+          <div class="num" style="font-size:2.5rem;color:var(--gray-900);">~10h</div>
+          <div class="lbl">Temps total estimé</div>
+          <div class="sub">réparti sur 3 semaines</div>
+        </div>
+      </div>
+
+      <div class="hl hl-green">
+        <p><strong>🎯 Calcul du ROI :</strong> 1 500 clics supplémentaires/mois × 5% de conversion estimé (inscription/demande de contact) = <strong>~75 leads supplémentaires/mois</strong>. Sans compter l'effet cumulatif du SEO (les positions s'améliorent avec le temps).</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <p>SEO École Gustave — Rapport mis à jour le 09 juin 2026 — Donn\xe9es : 6 derniers mois GSC</p>
+    <p style="font-size:0.7rem;margin-top:0.3rem;">Sources : Google Search Console (API), Audit technique mcp-seo, tests sur site</p>
+  </footer>
+
+  <script>
+    // Toggle accordion for detailed steps
+    function toggleDetail(header) {
+      header.classList.toggle('open');
+      const body = header.nextElementSibling;
+      if (body.style.maxHeight) {
+        body.style.maxHeight = null;
+      } else {
+        body.style.maxHeight = body.scrollHeight + 50 + 'px';
+      }
+    }
+
+    // Trend Chart
+    const ctx = document.getElementById('trendChart').getContext('2d');
+    new Chart(ctx, {
+      type: 'bar',
+      data: {
+        labels: ['Déc 25', 'Jan 26', 'Fév 26', 'Mar 26', 'Avr 26', 'Mai 26'],
+        datasets: [{
+          label: 'Impressions',
+          data: [88146, 126013, 99130, 74676, 77295, 91146],
+          backgroundColor: 'rgba(30,115,190,0.7)',
+          borderColor: 'rgba(30,115,190,1)',
+          borderWidth: 1,
+          borderRadius: 4,
+          yAxisID: 'y',
+        }, {
+          label: 'Clics',
+          data: [3378, 5932, 3970, 4196, 2912, 3107],
+          backgroundColor: 'rgba(70,177,122,0.7)',
+          borderColor: 'rgba(70,177,122,1)',
+          borderWidth: 1,
+          borderRadius: 4,
+          yAxisID: 'y1',
+        }]
+      },
+      options: {
+        responsive: true,
+        maintainAspectRatio: true,
+        interaction: { mode: 'index', intersect: false },
+        plugins: {
+          legend: {
+            position: 'top',
+            labels: { font: { family: 'Inter', size: 11 }, usePointStyle: true, padding: 12 }
+          },
+          tooltip: {
+            callbacks: {
+              label: function(ctx) {
+                return ctx.dataset.label + ': ' + ctx.raw.toLocaleString('fr-FR');
+              }
+            }
+          }
+        },
+        scales: {
+          y: {
+            type: 'linear',
+            display: true,
+            position: 'left',
+            grid: { color: 'rgba(0,0,0,0.05)' },
+            ticks: {
+              font: { family: 'Inter', size: 10 },
+              callback: function(v) { return v >= 1000 ? (v/1000).toFixed(0) + 'k' : v; }
+            }
+          },
+          y1: {
+            type: 'linear',
+            display: true,
+            position: 'right',
+            grid: { drawOnChartArea: false },
+            ticks: {
+              font: { family: 'Inter', size: 10 },
+              callback: function(v) { return v >= 1000 ? (v/1000).toFixed(0) + 'k' : v; }
+            }
+          },
+          x: {
+            grid: { display: false },
+            ticks: { font: { family: 'Inter', size: 10 } }
+          }
+        }
+      }
+    });
+
+    // Animate elements on scroll
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.style.opacity = '1';
+          entry.target.style.transform = 'translateY(0)';
+        }
+      });
+    }, { threshold: 0.1 });
+    document.querySelectorAll('.card, .step, .step-detail, .kpi, .tl-item').forEach(el => {
+      el.style.opacity = '0';
+      el.style.transform = 'translateY(20px)';
+      el.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+      observer.observe(el);
+    });
+  </script>
+</body>
+</html>
