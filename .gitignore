@@ -1,0 +1,11 @@
+token.json
+client_secret.json
+token.pickle
+.gsc-token.json
+auth_url.txt
+auth_url.txt.result
+setup_google_auth.py
+test_gsc.py
+fetch_gsc_6months.py
+__pycache__/
+*.pyc

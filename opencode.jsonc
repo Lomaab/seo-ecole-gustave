@@ -1,0 +1,105 @@
+{
+  "$schema": "https://opencode.ai/config.json",
+
+  "instructions": [
+    "SKILL.md",
+    "AGENTS.md",
+    ".opencode/skills/seo-redaction-humanisee/SKILL.md",
+    ".opencode/skills/blackhat-seo-reference/SKILL.md"
+  ],
+
+  "skills": {
+    "paths": [
+      ".opencode/skills",
+      "/Users/loris/.config/opencode/skill-libraries"
+    ]
+  },
+
+  "mcp": {
+    "mcp-seo": {
+      "type": "local",
+      "command": ["mcp-seo", "mcp"],
+      "enabled": true,
+      "description": "17 outils SEO : métas, headings, images, performance, mobile, schéma, crawl, accessibility"
+    },
+    "seo-mcp-autom8minds": {
+      "type": "local",
+      "command": ["npx", "-y", "@autom8minds/seo-mcp"],
+      "enabled": true,
+      "description": "29 outils SEO : audit page, Core Web Vitals, crawl site, schéma, accessibilité"
+    },
+    "mcp-seo-audit": {
+      "type": "local",
+      "command": ["uvx", "mcp-seo-audit"],
+      "enabled": true,
+      "description": "30 outils SEO : audit technique, Lighthouse, robots, sitemap, GSC"
+    },
+    "seo-tools-rog0x": {
+      "type": "local",
+      "command": ["npx", "-y", "@rog0x/mcp-seo-tools"],
+      "enabled": true,
+      "description": "6 outils SEO sans clé : métas, headings, liens, densité mots-clés, sitemap"
+    },
+    "ga4-mcp": {
+      "type": "local",
+      "command": ["npx", "-y", "ga4-mcp"],
+      "enabled": true,
+      "description": "16 outils GA4 + GSC : analytics trafic, Search Console, indexation, performance"
+    },
+    "gsc-mcp": {
+      "type": "local",
+      "command": ["npx", "-y", "@agentdesk/gsc-mcp"],
+      "enabled": true,
+      "description": "Google Search Console MCP : query analytics, URL inspection, sitemaps, coverage",
+      "env": {
+        "GSC_CLIENT_EMAIL": "986866183188-ks0506f89kgbr91oatnltt1hsmevi820.apps.googleusercontent.com",
+        "GSC_PRIVATE_KEY_PATH": "/Users/loris/SEO_Ecole_Gustave/client_secret.json"
+      }
+    },
+    "gsccli": {
+      "type": "local",
+      "command": ["gsccli", "mcp"],
+      "enabled": true,
+      "description": "CLI Google Search Console : analytics, inspection, sitemaps, coverage",
+      "env": {
+        "GSC_OAUTH_CLIENT_SECRETS_FILE": "/Users/loris/SEO_Ecole_Gustave/client_secret.json"
+      }
+    },
+    "humanizer-mcp": {
+      "type": "local",
+      "command": ["python3", "-m", "humanizer_mcp"],
+      "enabled": true,
+      "description": "Outils humanisation texte : détection IA, humanisation, analyse de patterns, vocabulaire"
+    },
+    "sequential-thinking": {
+      "type": "local",
+      "command": ["npx", "-y", "@modelcontextprotocol/server-sequential-thinking"],
+      "enabled": true,
+      "description": "Raisonnement structuré pour diagnostics SEO complexes"
+    },
+    "playwright": {
+      "type": "local",
+      "command": ["npx", "-y", "@playwright/mcp"],
+      "enabled": true,
+      "description": "Scraping et rendu JavaScript pour sites React/Next.js"
+    },
+    "filesystem": {
+      "type": "local",
+      "command": ["npx", "-y", "@modelcontextprotocol/server-filesystem", "/Users/loris/SEO_Ecole_Gustave"],
+      "enabled": true,
+      "description": "Accès aux fichiers du projet"
+    }
+  },
+
+  "agent": {
+    "seo-ecole-gustave": {
+      "description": "Agent SEO IA complet : audits on-page, technique, contenu, performance, mobile, AEO/GEO, rédaction humanisée",
+      "prompt": "file:.opencode/agents/seo-ecole-gustave.md",
+      "temperature": 0.1
+    }
+  },
+
+  "plugin": [
+    "opencode-skills-collection@latest"
+  ]
+}
